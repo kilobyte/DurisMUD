@@ -5721,7 +5721,8 @@ void do_restore(P_char ch, char *argument, int cmd)
 					victim->points.location_hit[i] = 0;
 #endif
 
-				send_to_char("&+BA haze of magical energies fall from the heavens, engulfing all that you see.&LAs they subside, you feel refreshed...&n\n", victim);
+				send_to_char("&+BA haze of magical energies fall from the heavens, engulfing all that you see.\n"
+					     "&+BAs they subside, you feel refreshed...&n\n", victim);
 				if (ch != victim)
 					do_reboot_restore(ch, victim);
 
@@ -5760,8 +5761,9 @@ void do_restore(P_char ch, char *argument, int cmd)
 						victim->equipment[i]->condition = 100; // victim->equipment[i]->max_condition; wipe2011
 				for (obj = victim->carrying; obj; obj = obj->next_content)
 					obj->condition = 100; // obj->max_condition; wipe2011
-				send_to_char("&+gFrom out of nowhere, little gremlin-like creatures about 6 inches tall pop up.&LThey grab all of your equipment, and fiddle with it before returning to you.&LThey "
-				             "then vanish as quickly as they came.\n",
+				send_to_char("&+gFrom out of nowhere, little gremlin-like creatures about 6 inches tall pop up.\n"
+					     "&+gThey grab all of your equipment, and fiddle with it before returning to you.\n"
+					     "&+gThey then vanish as quickly as they came.\n",
 				             victim);
 			}
 		}
