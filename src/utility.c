@@ -611,7 +611,7 @@ int str_n_cmp(const char *argv1, const char *argv2)
 
 const int char_in_list(const P_char ch)
 {
-	register P_char tmp;
+	P_char tmp;
 
 	if (!ch)
 		return FALSE;
@@ -629,7 +629,7 @@ const int char_in_list(const P_char ch)
 
 const int is_char_in_room(P_char ch, const int room)
 {
-	register P_char tmp;
+	P_char tmp;
 
 	if (!ch || room >= top_of_world || room == 0)
 		return FALSE;
@@ -668,7 +668,7 @@ char *deleteChar(char *strn, const unsigned long strnPos)
 
 char strleft(const char *strn, const char *substrn)
 {
-	register ulong i, len = strlen(strn), sublen = strlen(substrn);
+	ulong i, len = strlen(strn), sublen = strlen(substrn);
 
 	if (sublen > len)
 		return FALSE;
@@ -1174,7 +1174,7 @@ struct time_info_data age(P_char ch)
 
 int exist_in_equipment(P_char ch, int bitflag)
 {
-	register int i;
+	int i;
 
 	for (i = 0; i < MAX_WEAR; i++)
 	{
@@ -2372,7 +2372,7 @@ bool aggressive_to_class(P_char ch, P_char target)
 bool aggressive_to(P_char ch, P_char target)
 {
 	int                   tmp_race = 0;
-	register int          chance;
+	int          chance;
 	struct affected_type *af;
 
 	if (!ch || !target || ch == target)
@@ -2569,7 +2569,7 @@ bool aggressive_to(P_char ch, P_char target)
 bool is_aggr_to(P_char ch, P_char target)
 {
 	int          tmp_race = 0;
-	register int chance;
+	int chance;
 	P_char       master;
 
 	if (ch == target || !IS_ALIVE(ch) || !IS_ALIVE(target))
@@ -2993,7 +2993,7 @@ void ansi_comp(char *str)
 // Note: if length is negative, we pad the beginning instead of the end.
 string pad_ansi(const char *str, int length, bool trim_to_length)
 {
-	register char lookat;
+	char lookat;
 	bool          bPadEnd = TRUE;
 	string        ret_str("");
 	int           to_pad;

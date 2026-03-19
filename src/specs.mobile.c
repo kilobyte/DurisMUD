@@ -5505,7 +5505,7 @@ int stone_crumble(P_char ch, P_char pl, int cmd, char *arg)
 
 int goodie_guardian(P_char ch, P_char pl, int cmd, char *arg)
 {
-	register P_char i;
+	P_char i;
 	int             num, count = 0;
 	P_char          guardian;
 	P_obj           t_obj, next;
@@ -5576,7 +5576,7 @@ int goodie_guardian(P_char ch, P_char pl, int cmd, char *arg)
 #define BAHAMUT_HELPER_LIMIT 3
 int bahamut(P_char ch, P_char pl, int cmd, char *arg)
 {
-	register P_char i;
+	P_char i;
 	int             num, count = 0;
 	P_char          dragon;
 	P_obj           t_obj, next, heart;
@@ -5683,7 +5683,7 @@ int bahamut(P_char ch, P_char pl, int cmd, char *arg)
 
 int kobold_priest(P_char ch, P_char pl, int cmd, char *arg)
 {
-	register P_char i;
+	P_char i;
 	P_char          imp;
 	int             count = 0 /*
 	                           * , flag = 0
@@ -10220,7 +10220,7 @@ int jindo_ticket_master(P_char ch, P_char pl, int cmd, char *arg)
 
 int fooquest_boss(P_char ch, P_char pl, int cmd, char *arg)
 {
-	register P_char i;
+	P_char i;
 	P_char          dragon;
 	int             count = 0;
 
@@ -11313,7 +11313,7 @@ int undead_parrot(P_char ch, P_char pl, int cmd, char *arg)
 int long_john_silver_shout(P_char ch, P_char tch, int cmd, char *arg)
 {
 	/* variables for summon proc */
-	register P_char i;
+	P_char i;
 	P_char          ljswraith;
 	P_char          vict;
 	int             count = 0;
