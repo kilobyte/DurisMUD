@@ -2611,7 +2611,6 @@ struct innate_data
 {
 	char     *name;
 	cmd_func *func;
-	int       skill; // What skill is associated?
 };
 
 #endif /* _SOJ_STRUCTS_H_ */
