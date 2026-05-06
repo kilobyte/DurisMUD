@@ -69,6 +69,7 @@ OBJS =  $(SHIP_OBJS) \
 				 actset.o \
 				 actwiz.o \
 				 ai_mobs.o \
+				 ansi.o \
 				 specs.ailvio.o \
 				 alliances.o \
 				 automatic_rules.o \
