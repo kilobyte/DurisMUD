@@ -28,6 +28,7 @@
 #include "defines.h"
 #include "map.h"
 #include "player_log.h"
+#include "ansi.h"
 
 #ifdef _HPUX_SOURCE
 #define srandom srand
@@ -1317,6 +1318,8 @@ struct pc_only_data
 
 	int *gcmd_arr;  /* granted arr, stores granted cmd numbs */
 	int  numb_gcmd; /* number of granted cmds */
+
+	vector<AnsiString> map_glyphs;
 
 	ulong law_flags; /* KNOWN, WANTED, OUTCAST in hometowns */
 #ifdef OVL
