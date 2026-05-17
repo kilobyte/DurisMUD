@@ -1349,7 +1349,6 @@ void  language_show(P_char);
 /* limits.c */
 
 int  frags_lvl_adjustment(P_char ch, int howmuch);
-int  graf(P_char, int, int, int, int, int, int, int, int);
 int  hit_limit(P_char);
 int  hit_regen(P_char, bool);
 int  mana_limit(P_char);
