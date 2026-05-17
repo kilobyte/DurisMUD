@@ -2637,8 +2637,6 @@ P_char read_mobile(int nr, int type)
 		SET_BIT(mob->specials.act, ACT_SPEC);
 	}
 
-	setCharPhysTypeInfo(mob);
-
 	if (mob->nevents)
 	{
 		raise(SIGSEGV);
@@ -3927,18 +3925,6 @@ void free_char(P_char ch)
 	//    }
 	/* remove all events associated with this ch  */
 	// ClearCharEvents(ch);
-
-#ifdef NEW_COMBAT
-	if (ch->points.location_hit)
-	{
-		FREE((char *)ch->points.location_hit);
-		ch->points.location_hit = NULL;
-	}
-	else
-	{
-		logit(LOG_DEBUG, "char (%s) had NULL location_hit", GET_NAME(ch));
-	}
-#endif
 
 	if (IS_NPC(ch))
 	{

@@ -2709,8 +2709,6 @@ void select_name(P_desc d, char *arg, int flag)
 
 		d->character->only.pc->aggressive = -1;
 		d->character->desc                = d;
-
-		setCharPhysTypeInfo(d->character);
 	}
 	/* get passwd */
 

@@ -35,7 +35,6 @@ using namespace std;
 #include "justice.h"
 #include "map.h"
 #include "mm.h"
-#include "new_combat.h"
 #include "redis.h"
 #include "specializations.h"
 #include "spells.h"
@@ -4218,34 +4217,6 @@ void purge_old_intros(P_char ch)
 			}
 		}
 	}
-}
-
-void setCharPhysTypeInfo(P_char ch)
-{
-	int size;
-
-#ifndef NEW_COMBAT
-	return;
-#else
-
-#if 0
-  GET_PHYS_TYPE(ch) = getPhysTypebyRace(GET_RACE(ch));
-#endif
-#if 1
-	GET_PHYS_TYPE(ch) = PHYS_TYPE_HUMANOID; /* temporary .. */
-#endif
-	size = getNumbBodyLocsbyPhysType(GET_PHYS_TYPE(ch));
-
-	CREATE(ch->points.location_hit, sh_int, size);
-
-	if (!ch->points.location_hit)
-	{
-		logit(LOG_EXIT, "setCharPhysInfo(): couldn't alloc phys info");
-		raise(SIGSEGV);
-	}
-
-	bzero(ch->points.location_hit, sizeof(sh_int) * size);
-#endif
 }
 
 /* broadcasts message to whatever arena rm is part of */

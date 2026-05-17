@@ -1786,7 +1786,6 @@ P_char load_char_into_game(struct acct_chars *c, P_desc d)
 	player->only.pc = (struct pc_only_data *)mm_get(dead_pconly_pool);
 	player->desc    = d;
 
-	setCharPhysTypeInfo(player);
 	status = restoreCharOnly(player, c->charname);
 
 	if (status == -1)
@@ -1917,8 +1916,6 @@ void account_new_char_name(P_desc d, char *arg)
 
 		player->only.pc = (struct pc_only_data *)mm_get(dead_pconly_pool);
 		player->desc    = d;
-
-		setCharPhysTypeInfo(player);
 
 		d->character = player;
 	}

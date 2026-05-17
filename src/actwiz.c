@@ -520,8 +520,6 @@ void do_read_player(P_char ch, char *arg, int cmd)
 	vict->next     = character_list;
 	character_list = vict;
 
-	setCharPhysTypeInfo(vict);
-
 	/* saving info for teleport return command */
 	vict->specials.was_in_room = vict->in_room;
 
@@ -2070,9 +2068,6 @@ void do_stat(P_char ch, char *argument, int cmd)
 				break;
 			case ITEM_ARMOR:
 				snprintf(buf, MAX_STRING_LENGTH, "&+YAC-apply: &N%d  &+rWarmth: &N%d  &+YPrestige: &N%d", j->value[0], j->value[1], j->value[2]);
-
-				/*      snprintf(buf, MAX_STRING_LENGTH, "&+YDefl: &n%.2f  &+YAbs: &n%.2f",
-				              getArmorDeflection(j, NULL), getArmorAbsorbtion(j, NULL));*/
 				break;
 			case ITEM_SHIELD:
 				snprintf(buf, MAX_STRING_LENGTH, "&+YAC-apply: &N%d", j->value[3]);
@@ -5354,8 +5349,6 @@ void do_start(P_char ch, int nomsg)
 
 	NewbySkillSet(ch, (nomsg != CMD_MULTICLASS) ? TRUE : FALSE);
 
-	setCharPhysTypeInfo(ch);
-
 	GET_EXP(ch) = 1;
 
 	if (isname("Tyrus", GET_NAME(ch)) || god_check(GET_NAME(ch)))
@@ -5685,12 +5678,6 @@ void do_restore(P_char ch, char *argument, int cmd)
 				GET_COND(victim, DRUNK)  = 0;
 				if (GET_STAT(victim) < STAT_SLEEPING)
 					SET_POS(victim, GET_POS(victim) + STAT_NORMAL);
-
-#ifdef NEW_COMBAT
-				j = getNumbBodyLocsbyPhysType(GET_PHYS_TYPE(victim));
-				for (i = 0; i < j; i++)
-					victim->points.location_hit[i] = 0;
-#endif
 
 				send_to_char("&+BA haze of magical energies fall from the heavens, engulfing all that you see.\n"
 					     "&+BAs they subside, you feel refreshed...&n\n", victim);
