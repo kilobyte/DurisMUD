@@ -1552,6 +1552,9 @@ int do_simple_move_skipping_procs(P_char ch, int exitnumb, unsigned int flags)
 	{
 		for (t_ch = world[new_room].people; t_ch; t_ch = t_ch->next_in_room)
 		{
+			if (t_ch == t_ch->next_in_room)
+				recover_from_room_ch_loop(t_ch);
+
 			if (ch->following == t_ch)
 			{
 				following = TRUE;
